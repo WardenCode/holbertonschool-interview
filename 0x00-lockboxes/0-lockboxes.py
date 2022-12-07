@@ -23,15 +23,20 @@ def canUnlockAll(boxes):
     if (not number_boxes or not len(boxes[0])):
         return (False)
 
-    keys = boxes[0].copy()
+    keys = boxes[0]
+    if (0 not in boxes[0]):
+        keys = [0] + keys
+
+    keys = list(filter(lambda e: e < number_boxes, set(keys)))
 
     for key in keys:
-        for i in range(0, len(boxes[key])):
-            curr_key = boxes[key][i]
-            if (curr_key and curr_key < number_boxes and curr_key not in keys):
-                keys.append(boxes[key][i])
+        if (key < number_boxes):
+            for i in range(0, len(boxes[key])):
+                curr_key = boxes[key][i]
+                if (curr_key < number_boxes and curr_key not in keys):
+                    keys.append(boxes[key][i])
 
-    if (len(keys) == number_boxes - 1):
+    if (len(keys) == number_boxes):
         unlocked_all = True
 
     return (unlocked_all)
