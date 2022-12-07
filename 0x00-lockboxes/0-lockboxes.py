@@ -5,13 +5,8 @@
     and each box may contain keys to the other boxes.
 """
 
-from typing import List
 
-Box = List[int]
-Boxes = List[Box]
-
-
-def canUnlockAll(boxes: Boxes) -> bool:
+def canUnlockAll(boxes):
     """
     Compute the boxes and verify if all can be unlocked.
 
@@ -22,13 +17,13 @@ def canUnlockAll(boxes: Boxes) -> bool:
     Return: True if all the boxes can be unlocked False otherwise
     """
 
-    number_boxes: int = len(boxes)
-    unlocked_all: bool = False
+    number_boxes = len(boxes)
+    unlocked_all = False
 
     if (not number_boxes or not len(boxes[0])):
         return (False)
 
-    keys: List[int] = [*boxes[0]]
+    keys = [*boxes[0]]
 
     for key in keys:
         for i in range(0, len(boxes[key])):
