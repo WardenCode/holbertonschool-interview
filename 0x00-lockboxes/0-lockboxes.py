@@ -23,7 +23,7 @@ def canUnlockAll(boxes):
     if (not number_boxes or not len(boxes[0])):
         return (False)
 
-    keys = [*boxes[0]]
+    keys = boxes[0].copy()
 
     for key in keys:
         for i in range(0, len(boxes[key])):
