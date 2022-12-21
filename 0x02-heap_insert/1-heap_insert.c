@@ -95,6 +95,7 @@ chosen_parent_s *chosen_parent)
  * heapify - Do the "heapify" to an binary heap.
  *
  * @node: Pointer to one node of the binary heap, usually root node.
+ * @new_node: Pointer to the new node on the binary heap.
  *
  * Return: Void.
  */
