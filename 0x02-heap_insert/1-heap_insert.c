@@ -98,7 +98,7 @@ chosen_parent_s *chosen_parent)
  *
  * Return: Void.
  */
-void heapify(heap_t *node)
+void heapify(heap_t *node, heap_t **new_node)
 {
 	int tmp;
 	heap_t *left_child = NULL, *right_child = NULL;
@@ -110,22 +110,23 @@ void heapify(heap_t *node)
 	right_child = node->right;
 
 	if (left_child && (left_child->left || left_child->right))
-		heapify(left_child);
-
+		heapify(left_child, new_node);
 	if (right_child && (right_child->left || right_child->right))
-		heapify(right_child);
+		heapify(right_child, new_node);
 
 	if (left_child && (left_child->n > node->n))
 	{
 		tmp = node->n;
 		node->n = left_child->n;
 		left_child->n = tmp;
+		*new_node = node;
 	}
 
 	if (right_child && (right_child->n > node->n))
 	{
 		tmp = node->n;
 		node->n = right_child->n;
+		*new_node = node;
 		right_child->n = tmp;
 	}
 }
@@ -167,7 +168,7 @@ heap_t *heap_insert(heap_t **root, int value)
 	else
 		tmp.parent->left = new_node;
 
-	heapify(*root);
+	heapify(*root, &new_node);
 
 	return (new_node);
 }
