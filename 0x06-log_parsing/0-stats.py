@@ -43,11 +43,7 @@ def metrics():
     """
     Go through logs and print it
     """
-    REGEX = re.compile((r'(\d{1,3}\.){3}\d{1,3} - '
-                        r'\[\d{4}(-\d{2}){2}\ \d{2}(:\d{2}){2}\.\d{6}\] '
-                        r'\"GET /projects/260 HTTP/1\.1\" '
-                        r'(200|301|400|401|403|404|405|500) '
-                        r'(\d{1,})'))
+
     # REGEX = re.compile((r'(\d{1,3}\.){3}\d{1,3} - '
     #                     r'\[\d{4}(-\d{2}){2}\ \d{2}(:\d{2}){2}\.\d{6}\] '
     #                     r'\"GET /projects/260 HTTP/1\.1\" '
