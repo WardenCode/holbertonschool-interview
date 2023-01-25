@@ -43,33 +43,42 @@ def metrics():
     """
     Go through logs and print it
     """
-    try:
-        REGEX = re.compile((r'(\d{1,3}\.){3}\d{1,3} - '
-                            r'\[\d{4}(-\d{2}){2}\ \d{2}(:\d{2}){2}\.\d{6}\] '
-                            r'\"GET /projects/260 HTTP/1\.1\" '
-                            r'(200|301|400|401|403|404|405|500) '
-                            r'(\d{1,})'))
-        regist = {
-            '200': 0, '301': 0, '400': 0, '401': 0,
-            '403': 0, '404': 0, '405': 0, '500': 0,
-        }
-        total_size = 0
-        quantity = 0
+    # REGEX = re.compile((r'(\d{1,3}\.){3}\d{1,3} - '
+    #                     r'\[\d{4}(-\d{2}){2}\ \d{2}(:\d{2}){2}\.\d{6}\] '
+    #                     r'\"GET /projects/260 HTTP/1\.1\" '
+    #                     r'(200|301|400|401|403|404|405|500) '
+    #                     r'(\d{1,})'))
+    REGEX = re.compile((r'(\d{1,3}\.){3}\d{1,3} - '
+                        r'\[\d{4}(-\d{2}){2}\ \d{2}(:\d{2}){2}\.\d{6}\] '
+                        r'\"GET /projects/260 HTTP/1\.1\" '
+                        r'(200|301|400|401|403|404|405|500) '
+                        r'(.*)'))
+    regist = {
+        '200': 0, '301': 0, '400': 0, '401': 0,
+        '403': 0, '404': 0, '405': 0, '500': 0
+    }
+    total_size = 0
+    quantity = 0
 
+    try:
         for line in stdin:
             regex_result = re.search(REGEX, line)
 
             if (regex_result):
                 groups = regex_result.groups()
                 regist[groups[-2]] += 1
-                total_size += int(groups[-1])
+
+                if (re.search(r'^\d+$', groups[-1])):
+                    total_size += int(groups[-1])
+
                 quantity += 1
 
                 if (quantity % 10 == 0):
                     print_logs(regist, total_size)
 
-    except KeyboardInterrupt as Error:
+    except KeyboardInterrupt:
         print_logs(regist, total_size)
+        raise
 
 
 if (__name__ == '__main__'):
