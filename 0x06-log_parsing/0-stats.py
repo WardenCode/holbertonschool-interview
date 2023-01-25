@@ -70,8 +70,8 @@ def metrics():
                 total_size += int(groups[-1])
                 quantity += 1
 
-                if (quantity % 10 == 0):
-                    print_logs(regist, total_size)
+            if (quantity % 10 == 0):
+                print_logs(regist, total_size)
         print_logs(regist, total_size)
 
     except KeyboardInterrupt:
