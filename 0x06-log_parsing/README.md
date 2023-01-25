@@ -12,5 +12,3 @@ Write a script that reads stdin line by line and computes metrics:
 		- If a status code doesn’t appear or is not an integer, don’t print anything for this status code
 		- Format: \<status code>: \<number>
 		- Status codes should be printed in ascending order
-
-Warning: In this sample, you will have random value - it’s normal to not have the same output as this one.
