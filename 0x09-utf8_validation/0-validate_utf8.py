@@ -15,39 +15,38 @@ def validUTF8(data):
         else return False
     """
     count = 0
+    flag = False
 
     for num in data:
-        # if num is in the area of a subsequent byte
-        if 128 <= num <= 191:
 
-            # If there isn't a previous number bigger than 127
-            # And the actual number is bigger than 127
-            # Return False
-            if count == 0:
-                return False
-
+        # If num is outside the range 128 to 191 and
+        # flag is active (a unicode of two bytes)
+        if flag and (128 <= num <= 191):
             # One subsequent byte less
             count -= 1
-        else:
-            # If count isn't 0 return False.
-            # That's because the subsequent byte is missing.
-            if count != 0:
-                return False
+            if count == 0:
+                flag = False
+            continue
+        # if flag is active and num is not in range
+        elif flag:
+            return False
 
-            # One byte
-            if num < 128:
-                continue
-            # Two bytes
-            elif num < 224:
-                count = 1
-            # Three bytes
-            elif num < 240:
-                count = 2
-            # Four bytes
-            elif num < 248:
-                count = 3
-            # Five to more bytes (invalid)
-            else:
-                return False
+        # One byte
+        if num < 128:
+            continue
+        # Two bytes
+        elif num < 224:
+            count = 1
+        # Three bytes
+        elif num < 240:
+            count = 2
+        # Four bytes
+        elif num < 248:
+            count = 3
+        # Five to more bytes (invalid)
+        else:
+            return False
+
+        flag = True
 
     return count == 0
