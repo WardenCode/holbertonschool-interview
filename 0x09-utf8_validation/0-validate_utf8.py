@@ -20,15 +20,20 @@ def validUTF8(data):
         # if num is in the area of a subsequent byte
         if 128 <= num <= 191:
 
-            # If there not a previous number bigger than 127
+            # If there isn't a previous number bigger than 127
             # And the actual number is bigger than 127
             # Return False
-            if not count:
+            if count == 0:
                 return False
 
             # One subsequent byte less
             count -= 1
         else:
+            # If count isn't 0 return False.
+            # That's because the subsequent byte is missing.
+            if count != 0:
+                return False
+
             # One byte
             if num < 128:
                 continue
@@ -45,4 +50,4 @@ def validUTF8(data):
             else:
                 return False
 
-    return True
+    return count == 0
