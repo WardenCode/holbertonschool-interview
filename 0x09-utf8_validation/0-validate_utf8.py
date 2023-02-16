@@ -4,7 +4,7 @@ Validate utf-8 module
 """
 
 
-def validUTF8(data: list) -> bool:
+def validUTF8(data):
     """
     Determines if the data set represents a valid UTF-8 encoding.
 
@@ -14,8 +14,7 @@ def validUTF8(data: list) -> bool:
         bool: True if data is a valid UTF-8 encoding,
         else return False
     """
-    count: int = 0
-    flag: bool = False
+    count, flag = 0, False
 
     if data is not list:
         return False
