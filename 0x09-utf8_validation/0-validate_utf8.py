@@ -17,6 +17,9 @@ def validUTF8(data):
     count = 0
     flag = False
 
+    if (not data):
+        return False
+
     for num in data:
 
         # If num is outside the range 128 to 191 and
