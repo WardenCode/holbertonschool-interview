@@ -17,8 +17,9 @@ def validUTF8(data):
     count, flag = 0, False
 
     for num in data:
-        # If num is outside the range 128 to 191 and
-        # flag is active (a unicode of two bytes)
+        num = abs(num)
+        # If num is inside the range 128 to 191 and
+        # flag is active (a unicode of two bytes or more)
         if flag and (128 <= num <= 191):
             # One subsequent byte less
             count -= 1
