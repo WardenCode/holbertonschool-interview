@@ -33,7 +33,6 @@ void slide_to_direction(int *line, int size, int direction)
 
 			continue;
 		}
-
 		line[holder_idx] = 0;
 
 		if (line[i] == holder)
@@ -46,8 +45,9 @@ void slide_to_direction(int *line, int size, int direction)
 		{
 			line[to_insert] = holder;
 			holder_idx = i, holder = line[i];
+			if ((!direction && (i == size - 1)) || (direction && (i == 0)))
+				line[i] = 0, line[to_insert + step] = holder;
 		}
-
 		to_insert += step;
 	}
 }
