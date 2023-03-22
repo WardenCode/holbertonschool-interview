@@ -7,15 +7,17 @@ Write a program that solves the N queens problem.
 from sys import argv
 
 
-def n_queens(size: int):
+def n_queens(size: int) -> list:
     """
     N-queens solution
 
     Args:
         size (int): Size of the chessboard
+
+    Return: List of solutions of N-queens
     """
 
-    def backtrack(queens: list, xy_dif: list, xy_sum: list):
+    def backtrack(queens: list, xy_dif: list, xy_sum: list) -> None:
         """
         Backtracking n-queens algorithms
 
