@@ -44,7 +44,7 @@ def n_queens(size: int):
 
 
 if __name__ == '__main__':
-    if len(argv) < 2:
+    if len(argv) != 2:
         print("Usage: nqueens N")
         exit(1)
 
