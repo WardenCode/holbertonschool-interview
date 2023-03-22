@@ -7,8 +7,23 @@ Write a program that solves the N queens problem.
 from sys import argv
 
 
-def n_queens(size):
-    def backtrack(queens, xy_dif, xy_sum):
+def n_queens(size: int):
+    """
+    N-queens solution
+
+    Args:
+        size (int): Size of the chessboard
+    """
+
+    def backtrack(queens: list, xy_dif: list, xy_sum: list):
+        """
+        Backtracking n-queens algorithms
+
+        Args:
+            queens (List[int]): List of queens
+            xy_dif (List[int]): List of xy coordinates difference
+            xy_sum (List[int]): List of xy coordinates sum
+        """
         num_queens = len(queens)
 
         if num_queens == size:
