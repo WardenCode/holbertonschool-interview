@@ -33,8 +33,8 @@ def n_queens(size: int) -> list:
             return
 
         for i in range(size):
-            if ((i not in queens) and ((num_queens - i) not in xy_dif)
-                    and ((num_queens + i) not in xy_sum)):
+            if ((i not in queens) and ((num_queens - i) not in xy_dif) and
+                    ((num_queens + i) not in xy_sum)):
                 backtrack(queens + [i], xy_dif +
                           [num_queens - i], xy_sum + [num_queens + i])
 
