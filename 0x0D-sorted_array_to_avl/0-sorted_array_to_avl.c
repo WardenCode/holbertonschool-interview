@@ -10,18 +10,18 @@
  */
 avl_t *create_node(avl_t *parent, int n)
 {
-    avl_t *new_node = NULL;
+	avl_t *new_node = NULL;
 
-    new_node = malloc(sizeof(avl_t));
-    if (!new_node)
-        return NULL;
+	new_node = malloc(sizeof(avl_t));
+	if (!new_node)
+		return NULL;
 
-    new_node->n = n;
-    new_node->parent = parent;
-    new_node->left = NULL;
-    new_node->right = NULL;
+	new_node->n = n;
+	new_node->parent = parent;
+	new_node->left = NULL;
+	new_node->right = NULL;
 
-    return new_node;
+	return (new_node);
 }
 
 /**
@@ -36,21 +36,21 @@ avl_t *create_node(avl_t *parent, int n)
  */
 void insert_node(avl_t *parent, int start, int end, int *array)
 {
-    avl_t *new_node = NULL;
-    int middle = ((end - start) / 2) + start;
+	avl_t *new_node = NULL;
+	int middle = ((end - start) / 2) + start;
 
-    if (end - start <= 1)
-        return;
+	if (end - start <= 1)
+		return;
 
-    new_node = create_node(parent, array[middle]);
+	new_node = create_node(parent, array[middle]);
 
-    if (new_node->n < parent->n)
-        parent->left = new_node;
-    else if (new_node->n > parent->n)
-        parent->right = new_node;
+	if (new_node->n < parent->n)
+		parent->left = new_node;
+	else if (new_node->n > parent->n)
+		parent->right = new_node;
 
-    insert_node(new_node, start, middle, array);
-    insert_node(new_node, middle, end, array);
+	insert_node(new_node, start, middle, array);
+	insert_node(new_node, middle, end, array);
 }
 
 /**
@@ -63,11 +63,11 @@ void insert_node(avl_t *parent, int start, int end, int *array)
  */
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
-    int middle = (size / 2) - 1;
-    avl_t *tree = create_node(NULL, array[(size / 2) - 1]);
+	int middle = (size / 2) - 1;
+	avl_t *tree = create_node(NULL, array[(size / 2) - 1]);
 
-    insert_node(tree, -1, middle, array);
-    insert_node(tree, middle, size - 1, array);
+	insert_node(tree, -1, middle, array);
+	insert_node(tree, middle, size - 1, array);
 
-    return tree;
+	return (tree);
 }
