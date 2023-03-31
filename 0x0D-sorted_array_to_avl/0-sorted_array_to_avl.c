@@ -64,10 +64,14 @@ void insert_node(avl_t *parent, int start, int end, int *array)
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
 	int middle = (size / 2) - 1;
-	avl_t *tree = create_node(NULL, array[(size / 2) - 1]);
+	avl_t *tree = NULL;
 
+	if (!array)
+		return (NULL);
+
+	tree = create_node(NULL, array[middle]);
 	insert_node(tree, -1, middle, array);
-	insert_node(tree, middle, size - 1, array);
+	insert_node(tree, middle, size, array);
 
 	return (tree);
 }
