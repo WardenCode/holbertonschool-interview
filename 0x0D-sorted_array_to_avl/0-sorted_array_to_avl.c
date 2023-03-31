@@ -14,7 +14,7 @@ avl_t *create_node(avl_t *parent, int n)
 
 	new_node = malloc(sizeof(avl_t));
 	if (!new_node)
-		return NULL;
+		return (NULL);
 
 	new_node->n = n;
 	new_node->parent = parent;
