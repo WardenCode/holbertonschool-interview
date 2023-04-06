@@ -56,8 +56,8 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 
 		if ((value > curr->n) && !curr->express && express_flag)
 		{
-			printf(between_msg, prev->index, skiplist_last_node(curr)->index);
-			curr = prev;
+			printf(between_msg, curr->index, skiplist_last_node(curr)->index);
+			prev = curr;
 			printf(check_msg, curr->index, curr->n);
 			express_flag = 0;
 		}
