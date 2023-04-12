@@ -21,5 +21,5 @@ get(baseUrl, (err, data) => {
 
   const promises = characters.map(character => getCharacter(character));
 
-  Promise.all(promises).then(promise => console.log(promise));
+  Promise.all(promises).then(names => names.forEach(name => console.log(name)));
 });
