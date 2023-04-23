@@ -6,7 +6,7 @@ calculate how many square units of water will be retained after it rains.
 """
 
 
-def trim_int_list(collection: list) -> tuple:
+def trim_int_list(collection):
     """
     Get the indexes of the first and the last elements of the list
     with value
@@ -17,8 +17,8 @@ def trim_int_list(collection: list) -> tuple:
     Returns:
         Tuple[int, int]: Index of the first and last element with value
     """
-    start: int = 0
-    end: int = len(collection) - 1
+    start = 0
+    end = len(collection) - 1
 
     for i in range(len(collection)):
         if (collection[i] != 0):
@@ -33,7 +33,7 @@ def trim_int_list(collection: list) -> tuple:
     return (start, end)
 
 
-def rain(walls: list) -> int:
+def rain(walls):
     """
     Retrieve the mount of water units retained
 
@@ -43,16 +43,16 @@ def rain(walls: list) -> int:
     Returns:
         int: Total amount of rainwater retained.
     """
-    rainwater_amount: int = 0
-    left: dict = {
+    rainwater_amount = 0
+    left = {
         "value": 0,
         "index": 0
     }
-    right: dict = {
+    right = {
         "value": 0,
         "index": len(walls) - 1
     }
-    step: int = 1
+    step = 1
 
     if len(walls) < 3:
         return 0
