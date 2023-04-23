@@ -5,6 +5,7 @@ with unit width 1, as if viewing the cross-section of a relief map,
 calculate how many square units of water will be retained after it rains.
 """
 
+
 def trim_int_list(collection: list) -> tuple:
     """
     Get the indexes of the first and the last elements of the list
