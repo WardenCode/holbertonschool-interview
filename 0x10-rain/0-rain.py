@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 Given a list of non-negative integers representing the heights of walls
 with unit width 1, as if viewing the cross-section of a relief map,
@@ -68,7 +68,7 @@ def rain(walls: List[int]) -> int:
     right["index"] = end
     right["value"] = walls[end]
 
-    if (walls[start] > walls[end]):
+    if walls[start] > walls[end]:
         step = -1
         start, end = end - 1, start
     else:
@@ -78,16 +78,15 @@ def rain(walls: List[int]) -> int:
         wall = walls[i]
         water_level = min(left["value"], right["value"])
 
-        if ((wall > water_level) and (start < end)):
+        if water_level > wall:
+            rainwater_amount += water_level - wall
+
+        if start < end:
             left["index"] = i
             left["value"] = wall
-            continue
 
-        if ((wall > water_level) and (start > end)):
+        if start > end:
             right["index"] = i
             right["value"] = wall
-            continue
-
-        rainwater_amount += water_level - wall
 
     return rainwater_amount
