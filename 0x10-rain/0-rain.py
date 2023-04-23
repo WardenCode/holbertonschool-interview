@@ -5,12 +5,7 @@ with unit width 1, as if viewing the cross-section of a relief map,
 calculate how many square units of water will be retained after it rains.
 """
 
-from typing import List, Tuple, Dict
-
-Direction = Dict[str, int]
-
-
-def trim_int_list(collection: List[int]) -> Tuple[int, int]:
+def trim_int_list(collection: list) -> tuple:
     """
     Get the indexes of the first and the last elements of the list
     with value
@@ -37,7 +32,7 @@ def trim_int_list(collection: List[int]) -> Tuple[int, int]:
     return (start, end)
 
 
-def rain(walls: List[int]) -> int:
+def rain(walls: list) -> int:
     """
     Retrieve the mount of water units retained
 
@@ -48,11 +43,11 @@ def rain(walls: List[int]) -> int:
         int: Total amount of rainwater retained.
     """
     rainwater_amount: int = 0
-    left: Direction = {
+    left: dict = {
         "value": 0,
         "index": 0
     }
-    right: Direction = {
+    right: dict = {
         "value": 0,
         "index": len(walls) - 1
     }
