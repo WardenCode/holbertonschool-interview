@@ -9,14 +9,14 @@
  *
  * Return: Void.
  */
-void swap(int *array, int a_idx, int b_idx) {
-    int tmp = 0;
+void swap(int *array, int a_idx, int b_idx)
+{
+	int tmp = 0;
 
-    tmp = array[a_idx];
-    array[a_idx] = array[b_idx];
-    array[b_idx] = tmp;
+	tmp = array[a_idx];
+	array[a_idx] = array[b_idx];
+	array[b_idx] = tmp;
 }
-
 
 /**
  * heapify - Changes the array to convert it into a heap
@@ -28,22 +28,24 @@ void swap(int *array, int a_idx, int b_idx) {
  *
  * Return: Void
  */
-void heapify(int *array, size_t array_size, size_t heap_size, size_t node_idx) {
-    size_t left_idx = (2 * node_idx) + 1;
-    size_t right_idx = (2 * node_idx) + 2;
-    size_t largest_idx = node_idx;
+void heapify(int *array, size_t array_size, size_t heap_size, size_t node_idx)
+{
+	size_t left_idx = (2 * node_idx) + 1;
+	size_t right_idx = (2 * node_idx) + 2;
+	size_t largest_idx = node_idx;
 
-    if ((left_idx < heap_size) && (array[left_idx] > array[largest_idx]))
-        largest_idx = left_idx;
+	if ((left_idx < heap_size) && (array[left_idx] > array[largest_idx]))
+		largest_idx = left_idx;
 
-    if ((right_idx < heap_size) && (array[right_idx] > array[largest_idx]))
-        largest_idx = right_idx;
+	if ((right_idx < heap_size) && (array[right_idx] > array[largest_idx]))
+		largest_idx = right_idx;
 
-    if (node_idx != largest_idx) {
-        swap(array, node_idx, largest_idx);
-        print_array(array, array_size);
-        heapify(array, array_size, heap_size, largest_idx);
-    }
+	if (node_idx != largest_idx)
+	{
+		swap(array, node_idx, largest_idx);
+		print_array(array, array_size);
+		heapify(array, array_size, heap_size, largest_idx);
+	}
 }
 
 /**
@@ -57,16 +59,17 @@ void heapify(int *array, size_t array_size, size_t heap_size, size_t node_idx) {
  */
 void heap_sort(int *array, size_t size)
 {
-    int i = 0;
+	int i = 0;
 
-    if (!array || size <= 1)
-        return;
+	if (!array || size <= 1)
+		return;
 
-    for (i = (size / 2) - 1; i >= 0; i--)
-        heapify(array, size, size, i);
+	for (i = (size / 2) - 1; i >= 0; i--)
+		heapify(array, size, size, i);
 
-    for (i = size - 1; i > 0; i--) {
-        swap(array, 0, i);
+	for (i = size - 1; i > 0; i--)
+	{
+		swap(array, 0, i);
 		heapify(array, size, i, 0);
-    }
+	}
 }
