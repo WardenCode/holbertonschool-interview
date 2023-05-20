@@ -5,8 +5,8 @@ the title of all hot articles, and prints a sortedcount
 of given keywords (case-insensitive, delimited by spaces).
 """
 
-from requests import get
 import re
+from requests import get
 
 header = {
     'User-Agent': 'Linux:api_advanced:v0.0.0 (by /u/ElEnriquez)'
