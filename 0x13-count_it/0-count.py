@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-Write a recursive function that queries the Reddit API, parses the title of all hot articles,
-and prints a sorted count of given keywords (case-insensitive, delimited by spaces.
-Javascript should count as javascript, but java should not).
+Write a recursive function that queries the Reddit API, parses
+the title of all hot articles, and prints a sortedcount
+of given keywords (case-insensitive, delimited by spaces).
 """
 
 from requests import get
@@ -20,7 +20,8 @@ def iterate_children(childrens, word_list, count_of_word):
     Args:
         childrens (List[dict]): List of reddits obtained from the subreddit
         word_list (List[str]): List of wordts to search on titles
-        count_of_word (dict): Dictionary with the count of the matching words on the titles
+        count_of_word (dict): Dictionary with the
+        count of the matching words on the titles
     """
 
     regex = r'({})'.format('|'.join(word_list))
@@ -46,13 +47,14 @@ def count_words(subreddit, word_list, after='start', count_of_words={}):
     Args:
         subreddit (str): Subreddit to search the hot topics.
         word_list (List[str]): Words to search on the subreddit.
-        after (str | None): String to go to the next page of the response about subreddit.
+        after (str | None): String to go to the next page
+        of the response about subreddit.
         count_of_word (dict): Dictionary with the count of words to search.
 
     Return: None
     """
-
-    base_url = f'https://www.reddit.com/r/{subreddit:s}/hot.json?after={after}#'
+    reddit_url = 'https://www.reddit.com'
+    base_url = f'{reddit_url:s}/r/{subreddit:s}/hot.json?after={after}#'
 
     response = get(base_url, headers=header, allow_redirects=False)
 
