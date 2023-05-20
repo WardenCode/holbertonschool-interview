@@ -3,7 +3,6 @@
  * print_array - Print an array
  *
  * @array: Int pointer to an array
- * @size: Size of the array
  * @start: Index of the first element to print
  * @end: Index of the last element to print
  *
