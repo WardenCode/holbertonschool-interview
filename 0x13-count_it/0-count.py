@@ -54,8 +54,7 @@ def count_words(subreddit, word_list, after='start', count_of_words={}):
     Return: None
     """
     reddit_url = 'https://www.reddit.com'
-    base_url = f'{reddit_url:s}/r/{subreddit:s}/hot.json?after={after}#'
-
+    base_url = '{}/r/{}/hot.json?after={}#'.format(reddit_url, subreddit, after)
     response = get(base_url, headers=header, allow_redirects=False)
 
     if ((response.status_code != 200) or (after is None)):
