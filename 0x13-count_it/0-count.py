@@ -71,6 +71,8 @@ def count_words(subreddit, word_list, after='start', count_of_words={}):
 
     if (len(count_of_words) != 0 and after == 'start'):
         count_of_words = dict(
-            sorted(count_of_words.items(), key=lambda item: item[1]))
+            sorted(count_of_words.items(),
+                   key=lambda item: item[1],
+                   reverse=True))
         for key, value in count_of_words.items():
             print("{}: {}".format(key, value))
