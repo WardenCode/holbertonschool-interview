@@ -11,6 +11,7 @@ header = {
     'User-Agent': 'Linux:api_advanced:v0.0.0 (by /u/ElEnriquez)'
 }
 
+
 def get_data(subreddit: str, hot_list: list, after: str) -> list:
     """Recursive function that queries the Reddit API, parses hot articles"""
     if after is None:
@@ -24,6 +25,7 @@ def get_data(subreddit: str, hot_list: list, after: str) -> list:
     for i in data:
         hot_list += (i.get('data').get('title').lower().split())
     return get_data(subreddit, hot_list, after)
+
 
 def count_words(subreddit: str, word_list: list) -> None:
     """Prints a sorted count of given keywords
