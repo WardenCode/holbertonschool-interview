@@ -1,10 +1,5 @@
 #!/usr/bin/python3
-"""
-Write a recursive function that queries the Reddit API, parses
-the title of all hot articles, and prints a sortedcount
-of given keywords (case-insensitive, delimited by spaces).
-"""
-
+""" Count it! REDDIT API"""
 from requests import get
 
 header = {
