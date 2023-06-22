@@ -8,7 +8,7 @@
  *
  * @start: Start index of array
  *
- * @right: End index of array
+ * @end: End index of array
  *
  * Return: Nothing
  */
