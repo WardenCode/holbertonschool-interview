@@ -6,22 +6,22 @@
  *
  * @array: Array to print
  *
- * @left: Start index of array
+ * @start: Start index of array
  *
  * @right: End index of array
  *
  * Return: Nothing
  */
-void print_array_with_range(int *array, int left, int right)
+void print_array_with_range(int *array, int start, int end)
 {
 	int i = 0;
 
 	if (!array)
 		return;
 
-	for (i = left; i < right; i++)
+	for (i = start; i < end; i++)
 	{
-		if (i != left)
+		if (i != start)
 			printf(", ");
 		printf("%d", array[i]);
 	}
@@ -82,12 +82,12 @@ void top_down_merge(int *B, size_t start, size_t mid, size_t end, int *A)
 		if (i < mid && (j >= end || A[i] <= A[j]))
 		{
 			B[k] = A[i];
-			i = i + 1;
+			i++;
 		}
 		else
 		{
 			B[k] = A[j];
-			j = j + 1;
+			j++;
 		}
 	}
 
@@ -122,7 +122,7 @@ void top_down_split_merge(int *B, size_t start, size_t end, int *A)
 }
 
 /**
- * merge-sort - Merge and sort two arrays
+ * merge_sort - Merge and sort two arrays
  *
  * @array: Int pointer to the array
  *
