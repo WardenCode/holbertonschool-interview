@@ -43,10 +43,8 @@ void print_array_with_range(int *array, int start, int end)
  */
 void copy_array(int *src, size_t start, size_t end, int *dest)
 {
-	size_t i = start;
-
-	for (; i < end; i++)
-		dest[i] = src[i];
+	for (; src && dest && start < end; start++)
+		dest[start] = src[start];
 }
 
 /**
@@ -112,7 +110,7 @@ void top_down_split_merge(int *B, size_t start, size_t end, int *A)
 {
 	size_t mid = (start + end) / 2;
 
-	if (end - start <= 1)
+	if (!A || !B || (end - start) <= 1)
 		return;
 
 	top_down_split_merge(A, start, mid, B);
