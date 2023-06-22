@@ -50,7 +50,7 @@ void copy_array(int *src, size_t start, size_t end, int *dest)
 /**
  * top_down_merge - Top down merge method
  *
- * @B: Secondary Array
+ * @A: Primary Array
  *
  * @start: Array index to start
  *
@@ -58,11 +58,11 @@ void copy_array(int *src, size_t start, size_t end, int *dest)
  *
  * @end: Array index to end
  *
- * @A: Primary Array
+ * @B: Secondary Array
  *
  * Return: Void
  */
-void top_down_merge(int *B, size_t start, size_t mid, size_t end, int *A)
+void top_down_merge(int *A, size_t start, size_t mid, size_t end, int *B)
 {
 	size_t i = start, j = mid, k = start;
 
