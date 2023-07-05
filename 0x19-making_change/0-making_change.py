@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 def makeChange(coins, total):
     """
     Determine the fewest number of coins needed
@@ -25,9 +26,10 @@ def makeChange(coins, total):
             total -= sortedCoins[i]
             i -= 1
             coinsQuantity += 1
-        i += 1
 
-    if (total == 0):
-        return coinsQuantity
+        if (total == 0):
+            return coinsQuantity
+
+        i += 1
 
     return -1
