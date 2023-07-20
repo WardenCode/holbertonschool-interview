@@ -1,5 +1,7 @@
 #include "sort.h"
 
+#define MAX_SIZE 5000
+
 /**
  * get_max - Get the maximum value of the int array
  *
@@ -31,7 +33,7 @@ int get_max(int *array, size_t size)
  */
 void count_sort(int *array, int size, int exp)
 {
-	int i = 0, output[size], count[10] = {0};
+	int i = 0, output[MAX_SIZE], count[10] = {0};
 
 	for (i = 0; i < size; i++)
 		count[(array[i] / exp) % 10]++;
