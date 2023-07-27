@@ -4,7 +4,7 @@ Island Perimeter
 """
 
 
-def island_perimeter(grid: list[list[int]]) -> int:
+def island_perimeter(grid):
     """
     Get the island perimeter in a ocean grid
 
@@ -14,7 +14,7 @@ def island_perimeter(grid: list[list[int]]) -> int:
     Returns:
         int: Perimeter of the earth surface
     """
-    perimeter: int = 0
+    perimeter = 0
 
     for y in range(0, len(grid)):
         for x in range(0, len(grid)):
